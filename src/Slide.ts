@@ -42,8 +42,6 @@ export default class Slide {
   auto(time: number) {
     this.timeout?.clear()
     this.timeout = new Timeout(() => this.next(), time)
-    // const id = setTimeout(() => this.next(), time)
-    // clearTimeout()
   }
 
   prev(){
