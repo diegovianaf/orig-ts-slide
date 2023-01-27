@@ -31,7 +31,7 @@ export default class Slide {
     this.init()
   }
 
-  hide(el: Element){
+  hide(el: Element) {
     el.classList.remove('active')
   }
 
@@ -61,18 +61,17 @@ export default class Slide {
   }
 
   pause() {
-    console.log('pause')
     this.pausedTimeout = new Timeout(() => {
+      this.timeout?.pause()
       this.paused = true
     }, 300)
   }
 
   continue() {
-    console.log('continue')
     this.pausedTimeout?.clear()
     if (this.paused) {
       this.paused = false
-      this.auto(this.time)
+      this.timeout?.continue()
     }
   }
 
