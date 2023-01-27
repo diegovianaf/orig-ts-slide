@@ -3,6 +3,15 @@ body {
   margin: 20px;
 }
 
+body.paused {
+  user-select: none;
+  text-size-adjust: none;
+  touch-action: manipulation;
+  -webkit-user-select: none;
+  -webkit-text-size-adjust: none;
+  -webkit-touch-callout: none;
+}
+
 h1 {
   text-align: center;
   font-size: 1.5rem;
