@@ -16,7 +16,9 @@ export default class Slide {
         this.time = time;
         this.timeout = null;
         this.pausedTimeout = null;
-        this.index = 0;
+        this.index = localStorage.getItem('activeSlide')
+            ? Number(localStorage.getItem('activeSlide'))
+            : 0;
         this.slide = this.slides[this.index];
         this.paused = false;
         this.init();
@@ -32,6 +34,7 @@ export default class Slide {
         this.index = index;
         this.slide = this.slides[this.index];
         this.slides.forEach((el) => this.hide(el));
+        localStorage.setItem('activeSlide', String(this.index));
         this.slide.classList.add('active');
         if (this.slide instanceof HTMLVideoElement) {
             this.autoVideo(this.slide);
